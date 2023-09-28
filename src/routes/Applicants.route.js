@@ -1,4 +1,4 @@
-import ApplicantsController from "../controller/Applicants.controller.js";
+import ApplicantsController from "../controllers/Applicants.controller.js";
 
 class ApplicantsRoute {
   constructor(Server) {

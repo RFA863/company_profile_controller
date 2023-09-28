@@ -1,5 +1,5 @@
 CREATE TABLE applicants (
-    id VARCHAR(35) PRIMARY KEY NOT NULL,
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     address VARCHAR(100) NOT NULL,
     phone VARCHAR(15) NOT NULL,
@@ -11,8 +11,16 @@ CREATE TABLE applicants (
 );
 
 CREATE TABLE applicants_specialist (
-    id VARCHAR(35) PRIMARY KEY NOT NULL,
-    userId VARCHAR(35) NOT NULL,
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    userId INT NOT NULL,
     specialist VARCHAR(100) NOT NULL,
-    FOREIGN KEY (id) REFERENCES applicants(id)
+    FOREIGN KEY (userId) REFERENCES applicants(id)
 );
+
+CREATE TABLE admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+
