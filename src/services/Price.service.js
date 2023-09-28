@@ -8,8 +8,6 @@ class PriceService {
     let bahan = 0;
     if (data.bahan === "B-Flute") {
       bahan = 5500;
-    } else if (data.bahan === "C-Flute") {
-      bahan = 5700;
     } else if (data.bahan === "BC-Flute") {
       bahan = 9700;
     } else if (data.bahan === "E-Flute") {
