@@ -1,7 +1,6 @@
 CREATE TABLE applicants (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    address VARCHAR(100) NOT NULL,
     phone VARCHAR(15) NOT NULL,
     email VARCHAR(25) NOT NULL,
     cv_path VARCHAR(200) NOT NULL,
