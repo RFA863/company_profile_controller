@@ -13,7 +13,9 @@ class ApplicantsController {
         messagge: "Forbidden",
       });
 
-    const getAllSrv = await this.ApplicantsService.getAll();
+    const getAllSrv = await this.ApplicantsService.getAll(
+      req.headers["authorization"]
+    );
 
     res.status(200).json({
       status: 200,
@@ -32,6 +34,13 @@ class ApplicantsController {
       });
 
     const getCvSrv = await this.ApplicantsService.getCv(req.params.userId);
+    if (getCvSrv === -1)
+      return await res.status(404).json({
+        status: 404,
+        message: "Not Found, File Not Exists",
+        type: "service",
+        data: { code: -1 },
+      });
 
     res.setHeader("Content-Type", getCvSrv.mime);
     res.setHeader(

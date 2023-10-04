@@ -42,20 +42,24 @@ class ApplicantsService {
       tools_knowledge: data.tools_knowledge,
     });
 
-    const applicantId = addDataApplicantsModel.id;
 
-    const addDataApplicantsSpesialistModel =
+    const applicantId = addDataApplicantsModel.id;
+    const specialists = data.specialist;
+
+    for (const specialist of specialists) {
       await this.ApplicantsSpecialistModel.create({
         userId: applicantId,
-        specialist: data.specialist,
+        specialist: specialist,
       });
+
+    }
 
     this.Server.FS.writeFileSync(
       process.cwd() +
-        "/server_data/applicants/CV/" +
-        data.phone +
-        "." +
-        fileType.ext,
+      "/server_data/applicants/CV/" +
+      data.phone +
+      "." +
+      fileType.ext,
       file
     );
 

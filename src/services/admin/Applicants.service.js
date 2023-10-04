@@ -11,7 +11,7 @@ class ApplicantsService {
       this.Server
     ).table;
   }
-  async getAll() {
+  async getAll(token) {
     const getDataApplicantsModel = await this.ApplicantsModel.findAll();
 
     if (getDataApplicantsModel === null && getDataApplicantsSpecialistModel)
@@ -24,9 +24,16 @@ class ApplicantsService {
             userId: getDataApplicantsModel[i].dataValues.id,
           },
         });
-
+      getDataApplicantsModel[i].dataValues.cv_path =
+        this.Server.env.HOSTNAME +
+        "/admin/applicants/cv/" +
+        getDataApplicantsModel[i].dataValues.id +
+        "?token=" +
+        token;
       getDataApplicantsModel[i].dataValues.specialist =
-        getDataApplicantsSpecialistModel;
+        getDataApplicantsSpecialistModel.map(
+          (val) => val.dataValues.specialist
+        );
     }
     return getDataApplicantsModel;
   }

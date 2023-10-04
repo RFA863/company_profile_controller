@@ -43,9 +43,9 @@ class ApplicantsValidator {
         nullable: false,
       },
       specialist: {
-        type: "string",
-        maxLength: 100,
-        minLength: 1,
+        type: "array",
+        minItems: 1,
+        items: { type: "string" },
         nullable: false,
       },
     },

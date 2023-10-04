@@ -2,13 +2,13 @@ class PriceValidator {
   PriceCheck = {
     type: "object",
     properties: {
-      panjang: {
+      lebar: {
         type: "number",
         maximum: 1000,
         minimum: 1,
         nullable: false,
       },
-      lebar: {
+      panjang: {
         type: "number",
         maximum: 1000,
         minimum: 1,
@@ -22,8 +22,8 @@ class PriceValidator {
       },
       bahan: {
         type: "string",
-        maximum: 1000,
-        minimum: 1,
+        maxLength: 100,
+        minLength: 1,
         nullable: false,
       },
     },

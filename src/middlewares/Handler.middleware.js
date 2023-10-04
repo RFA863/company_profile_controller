@@ -12,11 +12,18 @@ class HandlerMiddleware {
   global() {
     this.API.use(Express.json());
 
+    // this.API.use(
+    //   cors({
+    //     methods: ["GET", "PUT", "POST", "DELETE", "PATCH"],
+    //     origin: "*",
+    //     credentials: "*",
+    //   })
+    // );
+
     this.API.use(
       cors({
         methods: ["GET", "PUT", "POST", "DELETE", "PATCH"],
         origin: "*",
-        credentials: true,
       })
     );
 
