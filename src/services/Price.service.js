@@ -18,7 +18,19 @@ class PriceService {
     const b = data.lebar + data.tinggi + 4;
     const hasil = (a * b * bahan) / 10000;
 
-    return hasil;
+    function formatRupiah(angka) {
+      const formatter = new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        minimumFractionDigits: 0,
+      });
+      return formatter.format(angka);
+    }
+
+    // Mengubah nilai dalam variabel hasil menjadi format harga rupiah
+    const hasilDalamRupiah = formatRupiah(hasil);
+
+    return hasilDalamRupiah;
   }
 }
 
